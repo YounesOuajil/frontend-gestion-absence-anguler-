@@ -1,1 +1,32 @@
-<p>student-list works!</p>
+<h2>Student List</h2>
+<p>Current Group ID: {{ currentId }}</p>
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Group</th>
+      <th>Filier</th>
+      <th>Present</th>
+      <th>Absent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let student of students">
+      <tr *ngIf="student.group === currentId">
+        <td>{{ student.nom }}</td>
+        <td>{{ student.prenom }}</td>
+        <td>{{ student.group }}</td>
+        <td>{{ student.filier }}</td>
+        <td>
+          <label>
+            <input type="checkbox" [(ngModel)]="student.isPresent">
+          </label>
+        </td>
+        <td>
+          <button (click)="markAbsent()">Absent</button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

@@ -1,5 +1,7 @@
+import { StudentService } from './../student.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-groups-comp',
@@ -7,14 +9,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './groups-comp.component.css'
 })
 export class GroupsCompComponent {
-  constructor(public route:ActivatedRoute,){}
+  constructor(public route:ActivatedRoute,public studentService :StudentService){}
+
+  public id!:number;
 
   ngOnInit(): void {
- 
     this.route.params.subscribe(params => {
-      const id = +params['id'];
-      console.log('Parameter id:', id);
+       this.id = +params['id'];
+      console.log('Parameter id:', this.id);
+      this.studentService.setId(this.id);
+      
     });
+
+    
+  }
+
   
 }
-}
+

@@ -14,6 +14,6 @@ export class AdminCompComponent {
 
   logout(){
     this.auth.islogdin=false;
-    this.route.navigate(['/login']);
+    this.route.navigate(['/']);
   }
 }

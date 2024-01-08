@@ -1,2 +1,6 @@
-<app-nav-prof></app-nav-prof>
-<app-my-routing-outlet></app-my-routing-outlet>
+<nav class="navbar">
+    <a [routerLink]="[{ outlets: { myout: ['student_list'] } }]">List Etudiant</a>
+    <a [routerLink]="[{ outlets: { myout: ['absenc_list'] } }]">List Absens</a>
+  </nav>
+  
+<router-outlet name="myout"></router-outlet>
